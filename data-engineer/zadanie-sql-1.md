@@ -1,5 +1,3 @@
-### Zadanie SQL 1
-
 **Cel**
 
 Twoim zadaniem jest napisanie zapytania SQL w bazie BigQuery na danych Google Analytics. 
