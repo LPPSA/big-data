@@ -14,7 +14,7 @@ pip install jupyter
 export GOOGLE_APPLICATION_CREDENTIALS="<Sciezka do pobranego klucza>"
 jupyter notebook
 ```
-Utwórz notatnik zgodnie z instrukcją z (Google Cloud)[https://cloud.google.com/bigquery/docs/visualize-jupyter]. Otrzymasz poniższy widok:
+Utwórz notatnik zgodnie z instrukcją z [Google Cloud](https://cloud.google.com/bigquery/docs/visualize-jupyter). Otrzymasz poniższy widok:
 
 ![Notatnik Jupyter](img/jupyter.png)
 
