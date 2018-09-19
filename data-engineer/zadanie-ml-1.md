@@ -30,6 +30,14 @@ Współczynniki są wyświetlone przy pomocy:
 SELECT * FROM ML.WEIGHTS(MODEL `<nazwa_projektu>.bqml.logreg`)
 ```
 
-Wynik wygląda tak:
+Wynik komendy:
 
 ![Regresja logistyczna wagi](img/logreg.png)
+
+**Zadanie**
+
+Zinterpretuj proszę współczynniki modelu. Czy według Ciebie jest to dobry model? Z czego mogą wynikać potencjalne problemy?
+
+**Wskazówki**
+
+Łatwiej Ci będzie debugować zapytanie SQL, gdy będziesz to robić z poziomu konsoli BigQuery GCP. W tym celu musisz założyć bezpłatne konto na Google Cloud Platform [GCP](https://cloud.google.com/).
