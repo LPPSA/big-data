@@ -6,12 +6,14 @@ Twoim zadaniem jest napisanie i uruchomienie klasy Java która oparta jest o Kaf
 
 Przeczytaj wpis na blogu Confluent [Creating a Streaming Data Pipeline](https://docs.confluent.io/current/streams/quickstart.html)
 Po wykonaniu wszystkich kroków w tutorialu otrzymasz:
+
 ![Kafka Streams API](img/kafka-streams.png)
 
 
 **Zadanie**
 
 Zmodyfikuj kod klasy [WordCountDemo.java](https://github.com/apache/kafka/blob/2.0/streams/examples/src/main/java/org/apache/kafka/streams/examples/wordcount/WordCountDemo.java) tak, aby w łańcuchu przetwarzania zmiennej `source` następowała podmiana słów na słowo+" LPP". W rezultacie aplikacja powinna wyświetlić:
+
 ![Streams 2](img/streams-2.png)
 
 **Wskazówki**
