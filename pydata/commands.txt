@@ -1,0 +1,53 @@
+# Start Kafka cluster locally
+confluent start
+
+# Preview datagen settings
+cat user.avro
+cat buy.avro
+
+# Generate 10 customers
+ksql-datagen schema=user.avro format=delimited topic=user key=userid iterations=10
+
+# Generate 5 transactions
+ksql-datagen schema=buy.avro format=delimited topic=buy key=buyid iterations=5
+
+# In new tab start KSQL client
+ksql
+
+# Set offset to earliest and number of partitions to 1
+SET 'auto.offset.reset'='earliest';
+SET 'ksql.sink.partitions'='1';
+
+# Create streams for generated topics
+create stream user (userid BIGINT, country VARCHAR) with (kafka_topic='user', value_format='delimited');
+create stream buy (buyid BIGINT, userid VARCHAR, amount VARCHAR) with (kafka_topic='buy', value_format='delimited');
+
+# Preview data
+select * from user;
+select * from buy;
+
+# Join streams
+select country, amount from buy join user within 1 minutes on buy.userid=user.userid;
+
+# Add new transaction and check if you need new user to get output in the join
+
+# Create table
+create table table_user (userid BIGINT, country VARCHAR) with (kafka_topic='user', value_format='delimited',key='userid');
+
+# Join with table
+select country, amount from buy join table_user on buy.userid=table_user.userid;
+
+# Add new transaction to check that you do not need to generate new users
+
+# Materialize stream
+create stream c360 as select country, cast(amount as double) as kasa from buy join table_user on buy.userid=table_user.userid;
+
+# group by country
+select country, sum(kasa) from customer360 group by country;
+
+# Add transaction to see how aggregate gets updated
+
+# group by with window
+select country, sum(kasa) from customer360 window tumbling (size 5 seconds) group by country;
+
+# Run continous flow of transactions and see how aggregate gets updated
