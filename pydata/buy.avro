@@ -1,0 +1,26 @@
+{
+        "namespace": "streams",
+        "name": "buy",
+        "type": "record",
+        "fields": [
+                {"name": "buyid", "type": {
+                    "type": "long",
+                    "arg.properties": {
+                       "iteration": { "start": 1, "step": 1}
+                    }
+                }},
+                {"name": "userid", "type": {
+                    "type": "string",
+                    "arg.properties": {
+			"regex": "[1-5]"
+                    }
+                }},
+		{"name": "amount", "type": {
+                    "type": "string",
+                    "arg.properties": {
+                        "regex": "[1-9][0-9]\\.[0-9][0-9]"
+                    }
+                }}
+
+        ]
+}

@@ -1,0 +1,19 @@
+{
+        "namespace": "streams",
+        "name": "user",
+        "type": "record",
+        "fields": [
+                {"name": "userid", "type": {
+                    "type": "long",
+                    "arg.properties": {
+                       "iteration": { "start": 1, "step": 1}
+                    }
+                }},
+                {"name": "country", "type": {
+                    "type": "string",
+                    "arg.properties": {
+                        "regex": "PL|IT|FR"
+                    }
+                }}
+        ]
+}
